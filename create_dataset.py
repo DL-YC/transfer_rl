@@ -33,10 +33,10 @@ def main(total_samples=1000000):
     return train_set
 
 if __name__ == "__main__":
-    train_set = main()
     final_dir = '/Tmp/vasisthn/transfer_latent/simplesim'
     if not os.path.exists(final_dir):
         os.makedirs(final_dir)
     time = datetime.datetime.now()
     timestamp = str(time.year) + str(time.month) + str(time.day) + str(time.hour) + str(time.minute)
+    train_set = main()
     pickle.dump(train_set, open( "{}/{}_{}.p".format(final_dir, 'Duckie-SimpleSim-v0', timestamp), "wb" ))
