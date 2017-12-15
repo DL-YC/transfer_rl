@@ -36,8 +36,9 @@ def main(total_samples=1000000):
 
 if __name__ == "__main__":
     train_set = main()
-    if not os.path.exists('/home/nithin/transfer_rl/.dataset'):
-        os.makedirs('/home/nithin/transfer_rl/.dataset')
+    final_dir = '/Tmp/vasisthn/transfer_latent/simplesim'
+    if not os.path.exists(final_dir):
+        os.makedirs(final_dir)
     time = datetime.datetime.now()
     timestamp = str(time.year) + str(time.month) + str(time.day) + str(time.hour) + str(time.minute)
-    pickle.dump(train_set, open( "{}_{}.p".format('Duckie-SimpleSim-v0', timestamp), "wb" ))
+    pickle.dump(train_set, open( "{}/{}_{}.p".format(final_dir, 'Duckie-SimpleSim-v0', timestamp), "wb" ))
