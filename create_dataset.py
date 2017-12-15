@@ -16,7 +16,6 @@ def main(total_samples=1000000):
     env = gym.make('Duckie-SimpleSim-v0')
     obs = env.reset()
 
-    env.render()
     train_set = []
     for itr in range(total_samples):
         action = env.action_space.sample()
@@ -30,7 +29,6 @@ def main(total_samples=1000000):
         if done:
             print('done!')
             obs = env.reset()
-            env.render()     
 
     return train_set
 
